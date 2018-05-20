@@ -11,6 +11,7 @@
       "Time::Repeat::HHMM" : "lib/Time/Repeat/HHMM.pm6",
       "Time::Repeat::MM" : "lib/Time/Repeat/MM.pm6",
       "Time::Repeat::DateTime" : "lib/Time/Repeat/DateTime.pm6"
+      "Time::Repeat::internal" : "lib/Time/Repeat/internal.pm6"
   },
   "resources" : [ ],
   "source-url" : "",
