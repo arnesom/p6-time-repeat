@@ -1,0 +1,46 @@
+#! /usr/bin/env perl6
+
+use v6;
+
+use lib "../lib";
+
+use Time::Repeat::MM;
+use Time::Repeat::HHMM;
+
+my $times = "0435 +5 0505 0520 0535 0550 00 10 20 30 40 50 2000 00 15 30 45 2415";
+# my $times = "0435 +5 0505 0520 0535 0550 --00 10 20 30 40 50 2000 00 15 30 45 2415";
+# my @objects = time-parse($times);
+
+# say $times;
+# say @objects.join("|");
+# say time-parse-full($times).join("|");
+
+# exit;
+
+do-it(time-parse($times));
+say "-----------------------------------------------------------";
+do-it(time-parse-full($times));
+
+sub do-it (@objects)
+{
+  for @objects
+  {
+    my $time = $_;
+  
+    for (1, 5, 10, 4, 8, 2, 15, 3, 5, 7, 9)
+    {
+      print pad4($time) ~ " ";
+      # $time = $time.later(minute => $_);
+      $time.add(minute => $_);
+    }
+    say pad4($time);
+  }
+}
+
+sub pad4 ($time)
+{
+  my $string = $time.Str;
+
+  return        $string if $string.chars == 4;
+  return "  " ~ $string if $string.chars == 2;
+}

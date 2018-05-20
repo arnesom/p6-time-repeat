@@ -1,0 +1,18 @@
+#! /usr/bin/env perl6
+
+use v6;
+
+use lib "../lib";
+use Time::Repeat::DateTime; # ::Repeater;
+
+my $d = 360; # Duration.new(360);
+my $n = DateTime.now;
+my @i = repeat-interval($n, $d);
+
+say @i.is-lazy;
+
+for @i
+{
+  .say;
+  prompt("Ctrl-c to exit");
+}

@@ -1,0 +1,19 @@
+{
+  "authors" : [ "Arne Sommer" ],
+  "depends" : [ ],
+  "description" : "Set up and manipulate time intervals",
+  "license" : "Artistic-2.0",
+  "name" : "Time::Repeat",
+  "perl" : "6.c",
+  "provides" : {
+      "Time::Repeat" : "lib/Time/Repeat.pm6",
+      "Time::Repeat::String" : "lib/Time/Repeat/String.pm6",
+      "Time::Repeat::HHMM" : "lib/Time/Repeat/HHMM.pm6",
+      "Time::Repeat::MM" : "lib/Time/Repeat/MM.pm6",
+      "Time::Repeat::DateTime" : "lib/Time/Repeat/DateTime.pm6"
+  },
+  "resources" : [ ],
+  "source-url" : "",
+  "tags" : [ "time" ],
+  "version" : "0.0.1"
+}

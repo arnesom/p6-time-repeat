@@ -1,0 +1,30 @@
+#! /usr/bin/env perl6
+
+use v6;
+
+use lib "../lib";
+use Time::Repeat::MM;
+
+loop
+{
+  do-it(prompt("Time Expand [START] [COUNT] [DELTA]: "));
+}
+
+multi sub do-it ($string)
+{
+  my @elems = $string.split(/\s+/);
+  do-it(@elems[0], @elems[1], @elems[2]); 
+}
+
+multi sub do-it ($start, $count, $delta)
+{
+  my $mm = MM.new($start);
+
+  for 0 .. $count - 1 -> $i
+  {
+    say "[$i]: $mm";
+    $mm.add(minute => $delta);
+  }
+
+  say "[$count]: $mm";
+}
