@@ -1,11 +1,11 @@
-use v6.c;
+use v6;
 
 use Time::Repeat::MM;
 use Time::Repeat::internal;
 
-unit class Time::Repeat::HHMM:ver<0.0.1> is export;
+unit class Time::Repeat::HHMM:ver<0.0.2> is export;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 ##############################################################################
 
@@ -15,7 +15,7 @@ has Bool $.is-next-day is rw = False;
 
 ##############################################################################
 
-multi method new(Str $string)
+multi method new (Str $string)
 {
   die "Illegal time $string, must be four digits" unless $string ~~ $dd-dd;
 
@@ -31,7 +31,7 @@ multi method new(Str $string)
   return self.bless(hour => $hour, minute => $minute, is-next-day => $is-next-day);
 }
 
-multi method new(UInt :$hour, UInt :$minute, Bool :$is-next-day = False)
+multi method new (UInt :$hour, UInt :$minute, Bool :$is-next-day = False)
 {
   die unless $hour   ~~ $d-dd;
   die unless $minute ~~ $d-dd;
@@ -117,6 +117,11 @@ method Str
 }
 
 method Real
+{
+  return $.is-next-day * 24 * 60 + $.hour * 60 + $.minute;
+}
+
+method Numeric
 {
   return $.is-next-day * 24 * 60 + $.hour * 60 + $.minute;
 }
@@ -352,7 +357,7 @@ This module defines the "Time::Repeat::HHMM" class, dealing with hours and minut
 also has a day concept for sorting purposes. Use the "Time::Repeat::DateTime" class if
 you need to work with day values as well.
 
-Note that the day cocept only recognises the current day and the next one. If you add
+Note that the day concept only recognises the current day and the next one. If you add
 or subract values outside these days, and exception will be trown.
 
 =head1 SUBROUTINES/Methods
@@ -384,10 +389,10 @@ The same as "Time::Repeat::HHMM.new(DateTime.now)".
 These methods will return a copy of the HHMM object, with the minute and/or hour
 values adjusted.
 
-my $t2 = $1.later(minute => 10);
-my $t3 = $1.later(minute => 10, hour => 1);
-my $t4 = $1.later(hour => 1);
-my $t5 = $1.earlier(minute => 10);
+my $t2 = $t1.later(minute => 10);
+my $t3 = $t1.later(minute => 10, hour => 1);
+my $t4 = $t1.later(hour => 1);
+my $t5 = $t1.earlier(minute => 10);
 
 Do not use negative values.
 
@@ -397,9 +402,9 @@ This will add the specified minutes and/or hours to the object itself. This is
 useful when using the times as an iterator, as it doesn't make new objects all
 the time.
 
-$1.add(minute => 10);
-$1.add(minute => 5, hour => 1);
-$1.add(hour => 1);
+$t1.add(minute => 10);
+$t1.add(minute => 5, hour => 1);
+$t1.add(hour => 1);
 
 Do not use negative values!
 
@@ -436,7 +441,7 @@ L<https://github.com/arnesom/p6-time-repeat.git>. Thank you in advance for any i
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2018 Arne Sommer. This library is free software; you can redistribute it
+Copyright 2018-2019 Arne Sommer. This library is free software; you can redistribute it
 and/or modify it under the terms of the the Artistic License (2.0). You may obtain
 a copy of the full license at: L<http://www.perlfoundation.org/artistic_license_2_0>
 

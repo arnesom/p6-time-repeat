@@ -10,6 +10,8 @@ SYNOPSIS
   
   use Time::Repeat::HHMM;     # Work with HHMM objects (hour and minutes), defined in the module
   
+  use Time::Repeat::HHMM::Interval; # Work with intervals, based on HHMM objects
+
   use Time::Repeat::MM;       # Work with MM objects (minutes), defined in the module
   
   use Time::Repeat::DateTime; # Work with DateTime objects
@@ -28,5 +30,5 @@ Arne Sommer; arne at perl6.eu
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018 Arne Sommer. This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+Copyright 2018-2019 Arne Sommer. This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

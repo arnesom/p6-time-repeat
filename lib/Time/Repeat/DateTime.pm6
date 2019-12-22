@@ -1,10 +1,10 @@
-use v6.c;
+use v6;
 
 use Time::Repeat::internal;
 
-unit module Time::Repeat::DateTime:ver<0.0.1>;
+unit module Time::Repeat::DateTime:ver<0.0.2>;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 ##############################################################################
 #
@@ -185,7 +185,7 @@ L<https://github.com/arnesom/p6-time-repeat.git>. Thank you in advance for any i
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2018 Arne Sommer. This library is free software; you can redistribute it
+Copyright 2018-2019 Arne Sommer. This library is free software; you can redistribute it
 and/or modify it under the terms of the the Artistic License (2.0). You may obtain
 a copy of the full license at: L<http://www.perlfoundation.org/artistic_license_2_0>
 

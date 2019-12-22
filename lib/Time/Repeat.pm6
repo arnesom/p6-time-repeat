@@ -1,6 +1,6 @@
-unit module Date::Repeat:ver<0.0.1>:auth<Arne Sommer>;
+unit module Time::Repeat:ver<0.0.2>:auth<Arne Sommer>;
 
-die "Use Date::Repeat::****, and not the empty module 'Date::Repeat'.";
+die "Use Time::Repeat::****, and not the empty module 'Time::Repeat'.";
 
 =begin pod
 
@@ -10,21 +10,22 @@ Time::Repeat::**** - Modules for working with time intervals.
 
 =head1 VERSION
 
-Version 0.0.1
+Version 0.0.2
 
 =head1 SYNOPSIS
 
 This distribution supplies the follwing modules:
 
-  use Time::Repeat::String;   # Work with text strings
-  use Time::Repeat::HHMM;     # Work with HHMM objects (hour and minutes), defined in the module
-  use Time::Repeat::MM;       # Work with MM objects (minutes), defined in the module
-  use Time::Repeat::DateTime; # Work with DateTime objects
+  use Time::Repeat::String;         # Work with text strings
+  use Time::Repeat::HHMM;           # Work with HHMM objects (hour and minutes), defined in the module
+  use Time::Repeat::HHMM::Interval; # Work with intervals, based on HHMM objects
+  use Time::Repeat::MM;             # Work with MM objects (minutes), defined in the module
+  use Time::Repeat::DateTime;       # Work with DateTime objects
   
 =head1 SUBROUTINES
 
-All the modules (except MM) have the following two procedures. See the indvividual
-module documentation for a list of other procedures and methods they provide.
+All the modules (except MM and HHMM::Interval) have the following two procedures. See the
+indvividual module documentation for a list of other procedures and methods they provide.
 
 <time> is one of:
 
@@ -59,7 +60,7 @@ L<https://github.com/arnesom/p6-time-repeat.git>. Thank you in advance for any i
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2018 Arne Sommer. This library is free software; you can redistribute it
+Copyright 2018-2019 Arne Sommer. This library is free software; you can redistribute it
 and/or modify it under the terms of the the Artistic License (2.0). You may obtain
 a copy of the full license at: L<http://www.perlfoundation.org/artistic_license_2_0>
 

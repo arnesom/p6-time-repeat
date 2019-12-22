@@ -1,10 +1,10 @@
-use v6.c;
+use v6;
 
 use Time::Repeat::internal;
 
-unit class Time::Repeat::MM:ver<0.0.1> is export;
+unit class Time::Repeat::MM:ver<0.0.2> is export;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 has Int  $.hour   is rw = 0;
 has Int  $.minute is rw = 0;
@@ -122,6 +122,11 @@ method Real
   return $.hour * 60 + $.minute;
 }
 
+method Numeric
+{
+  return $.hour * 60 + $.minute;
+}
+
 ##############################################################################
 
 =begin pod
@@ -194,7 +199,7 @@ L<https://github.com/arnesom/p6-time-repeat.git>. Thank you in advance for any i
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2018 Arne Sommer. This library is free software; you can redistribute it
+Copyright 2018-2019 Arne Sommer. This library is free software; you can redistribute it
 and/or modify it under the terms of the the Artistic License (2.0). You may obtain
 a copy of the full license at: L<http://www.perlfoundation.org/artistic_license_2_0>
 

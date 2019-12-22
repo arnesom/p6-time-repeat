@@ -5,4 +5,6 @@ Revision history for Time-Repeat
 
 0.0101
     - Fixed an error in META6.json
-    
+
+0.02
+    - Added the 'Time::Repeat::HHMM::Interval' class
